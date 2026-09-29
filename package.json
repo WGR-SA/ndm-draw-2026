@@ -1,0 +1,28 @@
+{
+  "name": "ndm-draw-2026",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "freeze": "tsx src/cli/freeze.ts",
+    "draw": "tsx src/cli/draw.ts",
+    "verify": "tsx src/cli/verify.ts",
+    "reveal": "tsx --env-file=.env src/cli/reveal.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "preview": "tsx --env-file=.env src/cli/freeze.ts --dry-run"
+  },
+  "dependencies": {
+    "drand-client": "^1.4.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "22",
+    "tsx": "^4.23.15",
+    "typescript": "5",
+    "vitest": "^5.0.2"
+  }
+}

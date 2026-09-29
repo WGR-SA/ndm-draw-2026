@@ -1,0 +1,33 @@
+{
+  "contest": "ndm-2026",
+  "conditions": "https://lanuitdesmusees.ch/fr_CH/conditions-de-participation",
+  "closesAt": "2026-09-29T00:00:00+02:00",
+  "quizAnswers": { "quiz_q1": "b", "quiz_q2": "c", "quiz_q3": "d" },
+  "excludedEmailDomains": ["wgr.ch"],
+  "excludedIds": [
+    { "id": 611, "reason": "test" },
+    { "id": 612, "reason": "test" },
+    { "id": 613, "reason": "test" },
+    { "id": 614, "reason": "test" },
+    { "id": 615, "reason": "test" },
+    { "id": 618, "reason": "test" },
+    { "id": 619, "reason": "test" },
+    { "id": 620, "reason": "test" },
+    { "id": 621, "reason": "test" },
+    { "id": 624, "reason": "test" },
+    { "id": 625, "reason": "test" },
+    { "id": 626, "reason": "test" }
+  ],
+  "prizes": [
+    { "label": "Passeport Musées Suisses Famille", "count": 5 },
+    { "label": "Passeport Musées Suisses Classique", "count": 20 }
+  ],
+  "policy": [
+    "Seules les participations enregistrées avant la clôture (closesAt) sont prises en compte.",
+    "Un quiz n'est valable que si les trois réponses correspondent à quizAnswers.",
+    "Une participation photo n'est valable que si une photo a été envoyée.",
+    "Une personne est identifiée par son e-mail et son nom complet (sans casse ni accents). Une seule participation est retenue par personne : la photo si elle existe, sinon le quiz, et à mode égal la plus ancienne.",
+    "Le tirage classe toutes les participations retenues. Les rangs 1 à 5 reçoivent un Passeport Famille, les rangs 6 à 25 un Passeport Classique.",
+    "Si un gagnant n'est pas éligible (photo non conforme, conditions de participation non remplies) ou ne répond pas dans les 7 jours, le prix passe au premier rang suivant non attribué du classement."
+  ]
+}
