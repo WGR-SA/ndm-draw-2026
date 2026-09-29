@@ -1,0 +1,27 @@
+{
+  "contest": "ndm-2026",
+  "frozenAt": "2026-09-29T14:05:41.858Z",
+  "closesAt": "2026-09-29T00:00:00+02:00",
+  "rulesSha256": "58bfa6aa72ff371b55712c553c03e990c5290013b28bf82fc789a025a1a8da94",
+  "eligibleSha256": "804f41483d6bbdd839e4833cfda641726a30f64d2022cd1874bbeba97bef569a",
+  "excludedSha256": "abeed9fcd04c665d67124e9615aa86286e2b25c63fe49d4d35724519e2a3d8ae",
+  "counts": {
+    "eligible": 265,
+    "photo": 239,
+    "quiz": 26,
+    "excluded": {
+      "test": 12,
+      "wrong_answers": 25,
+      "duplicate": 15,
+      "after_close": 12
+    }
+  },
+  "drand": {
+    "network": "quicknet",
+    "chainHash": "52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971",
+    "publicKey": "83cf0f2896adee7eb8b5f01fcad3912212c437e0073e911fb90022d3e760183c8c4b450b6a0a6c3ac6a5776a2d1064510d1fec758c921cc22b0e17e63aaf4bcb5ed66304de9cf809bd274ca73bab4af5a6e9c76a4bc09e76eae8991ef5ece45a",
+    "round": 32629612,
+    "roundTime": "2026-09-29T14:30:00.000Z"
+  },
+  "algorithm": "score = sha256(`${randomness}:${id}`) en hexadécimal ; classement par score croissant"
+}
