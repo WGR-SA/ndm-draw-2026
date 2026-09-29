@@ -1,0 +1,56 @@
+name: Freeze
+
+on:
+  workflow_dispatch:
+    inputs:
+      draw_at:
+        description: Heure du tirage, ISO 8601 (ex. 2026-09-29T17:00:00+02:00)
+        required: true
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+concurrency:
+  group: draw
+  cancel-in-progress: false
+
+jobs:
+  freeze:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm freeze --draw-at "$DRAW_AT"
+        env:
+          DRAW_AT: ${{ inputs.draw_at }}
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+          NOTES_FILE: ${{ runner.temp }}/notes.md
+      - uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            rules.json
+            data/eligible.json
+            data/excluded.json
+            data/commitment.json
+      - name: Commit and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NOTES: ${{ runner.temp }}/notes.md
+        run: |
+          cat "$NOTES" >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "Freeze eligible entries"
+          git push
+          gh release create freeze --target "$(git rev-parse HEAD)" --title "Liste figée" --notes-file "$NOTES" \
+            rules.json data/eligible.json data/excluded.json data/commitment.json
